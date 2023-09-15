@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Practica2</string>
+    <string name="newProduct">New Product</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="description">Description</string>
+    <string name="name">Name</string>
+    <string name="cost">Cost</string>
+    <string name="price">Price</string>
+    <string name="category">Category</string>
+    <string name="stock">Stock</string>
+    <string name="accesory">Accessory</string>
+    <string name="cap">Cap</string>
+    <string name="pants">Pants</string>
+    <string name="shoes">Shoes</string>
+    <string name="socks">Socks</string>
+    <string name="sweater">Sweater</string>
+    <string name="tshirt">T-Shirt</string>
+    <string name="update">Update</string>
+    <string name="delete">Delete</string>
+    <string name="product_saved" >Producto saved</string>
+    <string name="Error_not_saved_product">Error on saved product</string>
+    <string name="Error_not_deleted_product">Error: Product was not deleted</string>
+
+    <string name="questionDeleteProduct">Do you really want to delete the product?</string>
+    <string name="confirmation">Confirmation</string>
+    <string name="acept">Accept</string>
+    <string name="del_product">Product deleted</string>
+    <string name="h">hil</string>
+    <string name="notCategory">Uncategorized</string>
+    <string name="priceVsCost">The price must be higher than the cost</string>
+    <string name="addElement">Add Element</string>
+    <string name="noEntriesFound">No records found!</string>
+    <string name="profit">Profit</string>
+    <string name="lastRestocking">Last restocking</string>
+    <string name="id_Recived">Received Id:</string>
+    <string name="Error">Error</string>
+    <string name="server_response">Server Response:</string>
+    <string name="unavailable_connection">Unavailable Connection</string>
+
+</resources>
