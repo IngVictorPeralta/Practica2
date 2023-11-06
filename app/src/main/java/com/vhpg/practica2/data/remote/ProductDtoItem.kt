@@ -15,4 +15,6 @@ data class ProductDtoItem(
     val url: String,
     @SerializedName("category")
     val category: Int,
+    @SerializedName("spot")
+    val spot: String,
 )

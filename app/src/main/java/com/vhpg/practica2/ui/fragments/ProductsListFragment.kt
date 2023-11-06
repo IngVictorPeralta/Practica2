@@ -1,5 +1,6 @@
 package com.vhpg.practica2.ui.fragments
 
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -28,7 +29,7 @@ class ProductsListFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var repository: ProductRepository
-
+    private lateinit var mp: MediaPlayer
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -41,14 +42,26 @@ class ProductsListFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentProductsListBinding.inflate(inflater, container, false)
+
         return binding.root
 
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //binding.pbLoading.visibility = View.GONE
 
+        mp = MediaPlayer.create(requireContext(),R.raw.music)
+        mp.start()
         repository = (requireActivity().application as ClothsShopApp).repository
+        getProducts()
+        binding.btnReload.setOnClickListener{
+            getProducts()
+        }
+    }
+
+    private fun getProducts(){
+        binding.btnReload.visibility = View.INVISIBLE
 
         lifecycleScope.launch{
             val call: Call<ProductDto> = repository.getProducts()
@@ -56,6 +69,7 @@ class ProductsListFragment : Fragment() {
             call.enqueue(object: Callback<ProductDto>{
                 override fun onResponse(call: Call<ProductDto>, response: Response<ProductDto>) {
                     //binding.pbLoading.visibility = View.GONE
+                    mp.stop()
                     var logMessage = getString(R.string.server_response)
                     Log.d(Constants.LOGTAG,"$logMessage ${response.body()}")
                     response.body()?.let{products ->
@@ -80,7 +94,8 @@ class ProductsListFragment : Fragment() {
                     Log.d(Constants.LOGTAG,"$logMessage : ${t.message}")
                     var tMessage = getString(R.string.unavailable_connection)
                     Toast.makeText(requireContext(), "$tMessage", Toast.LENGTH_SHORT).show()
-                    //binding.pbLoading.visibility = View.GONE
+                    binding.pbLoading.visibility = View.GONE
+                    binding.btnReload.visibility = View.VISIBLE
                 }
 
             })

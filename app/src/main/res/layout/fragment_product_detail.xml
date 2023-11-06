@@ -223,6 +223,14 @@
                             android:textSize="20sp"
                             tools:text="@string/lastRestocking" />
                     </LinearLayout>
+                    <VideoView
+                        android:id="@+id/vvVideo"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
                 </LinearLayout>
             </ScrollView>
 
@@ -234,6 +242,7 @@
                 android:indeterminateDrawable="@drawable/loading_anim"
                 android:indeterminateDuration="1500"
                 />
+
 
         </RelativeLayout>
 

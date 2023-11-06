@@ -1,11 +1,13 @@
 package com.vhpg.practica2.ui.fragments
 
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.MediaController
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
@@ -30,6 +32,8 @@ class ProductDetailFragment : Fragment() {
 
     private var _binding: FragmentProductDetailBinding? = null
     private val binding get() = _binding!!
+
+
 
     private lateinit var repository: ProductRepository
 
@@ -63,6 +67,8 @@ class ProductDetailFragment : Fragment() {
                                 else -> R.drawable.cat0
                             }
 
+                            val mc = MediaController(requireContext())
+
                             binding.apply {
                                 pbLoading.visibility = View.GONE
                                 tvTitle.text = response.body()?.name
@@ -79,7 +85,10 @@ class ProductDetailFragment : Fragment() {
                                 Glide.with(requireContext())
                                     .load(response.body()?.url)
                                     .into(ivImage)
-
+                                vvVideo.setVideoURI(Uri.parse(response.body()?.spot))
+                                mc.setAnchorView(vvVideo)
+                                vvVideo.setMediaController(mc)
+                                vvVideo.start()
                             }
                         }
 

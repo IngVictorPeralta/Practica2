@@ -18,5 +18,7 @@ data class ProductDetailDto(
     @SerializedName("stock")
     val stock: Int,
     @SerializedName("url")
-    val url: String
+    val url: String,
+    @SerializedName("spot")
+    val spot: String
 )

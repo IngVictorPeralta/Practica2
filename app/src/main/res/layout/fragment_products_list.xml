@@ -14,7 +14,20 @@
         android:indeterminateDrawable="@drawable/loading_anim"
         android:indeterminateDuration="1500"
         />
-
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnReload"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="Recargar"
+        android:layout_gravity="center"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvGames"
         android:layout_width="match_parent"
